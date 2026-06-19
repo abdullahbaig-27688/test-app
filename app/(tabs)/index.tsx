@@ -32,7 +32,7 @@ export default function HomeScreen() {
         <Button title="Reassign Order" onPress={() => router.push('/reassignOrder')} variant="danger" />
         <Button title="Assign Order" onPress={() => router.push('/assignOrder')} variant="warning" />
         <Button title="Active Deliveries" onPress={() => router.push('/activeDeliveries')} variant="success" />
-        <Button title="Issue Center" onPress={() => router.push('/(tabs)/issue')} variant="info" />
+        <Button title="Issue Center" onPress={() => router.push('/(tabs)/issueCenter')} variant="info" />
         <Button title="Driver Shifts" onPress={() => router.push('/(tabs)/driverShift')} variant="dark" />
       </ThemedView>
     </ParallaxScrollView>

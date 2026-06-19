@@ -15,18 +15,20 @@ import React from 'react';
 import {
   Dimensions,
   Image,
+  Pressable,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width } = Dimensions.get('window');
+const { router } = require('expo-router');
 
 export default function DriverDetailScreen() {
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -34,14 +36,14 @@ export default function DriverDetailScreen() {
       {/* HEADER SECTION */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <TouchableOpacity style={styles.iconButton} activeOpacity={0.7}>
+          <Pressable style={styles.iconButton} activeOpacity={0.7} onPress={() => { router.back(); }}>
             <ArrowLeft size={20} color="#111827" />
-          </TouchableOpacity>
+          </Pressable>
           <View style={styles.profileContainer}>
             <View style={styles.avatarWrapper}>
-              <Image 
-                source={{ uri: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80' }} 
-                style={styles.avatar} 
+              <Image
+                source={{ uri: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80' }}
+                style={styles.avatar}
               />
               <View style={styles.onlineIndicator} />
             </View>
@@ -51,19 +53,19 @@ export default function DriverDetailScreen() {
             </View>
           </View>
         </View>
-        
+
         <View style={styles.headerRight}>
-          <TouchableOpacity style={[styles.iconButton, styles.headerActionSpace]} activeOpacity={0.7}>
+          <Pressable style={[styles.iconButton, styles.headerActionSpace]} activeOpacity={0.7}>
             <MessageSquare size={18} color="#111827" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.iconButton} activeOpacity={0.7}>
+          </Pressable>
+          <Pressable style={styles.iconButton} activeOpacity={0.7}>
             <Phone size={18} color="#111827" />
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        
+
         {/* CURRENT STATUS GRADIENT CARD WITH MATCHING SS GLOW DIRECTION */}
         <LinearGradient
           colors={['#121212', '#121212', '#5B00BA33']}
@@ -106,7 +108,7 @@ export default function DriverDetailScreen() {
 
         {/* TODAY'S PERFORMANCE SECTION */}
         <Text style={styles.sectionLabel}>TODAY'S PERFORMANCE</Text>
-        
+
         {/* 3-Column Grid */}
         <View style={styles.perfGrid}>
           <View style={styles.perfCard}>
@@ -150,9 +152,9 @@ export default function DriverDetailScreen() {
           <View style={styles.assignmentHeader}>
             <View style={styles.restaurantRow}>
               <View style={styles.restaurantLogoContainer}>
-                <Image 
-                  source={{ uri: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=100&q=80' }} 
-                  style={styles.restaurantLogo} 
+                <Image
+                  source={{ uri: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=100&q=80' }}
+                  style={styles.restaurantLogo}
                 />
               </View>
               <View>
@@ -187,26 +189,26 @@ export default function DriverDetailScreen() {
           </View>
 
           {/* View Map Action Button */}
-          <TouchableOpacity style={styles.viewMapButton} activeOpacity={0.7}>
+          <Pressable style={styles.viewMapButton} activeOpacity={0.7}>
             <MapPin size={15} color="#111827" style={styles.viewMapIcon} />
             <Text style={styles.viewMapButtonText}>View Map</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </ScrollView>
 
       {/* FOOTER ACTIONS ROW */}
       <View style={styles.bottomActionBar}>
-        <TouchableOpacity style={styles.reassignButton} activeOpacity={0.8}>
+        <Pressable style={styles.reassignButton} activeOpacity={0.8}>
           <Shuffle size={14} color="#DC2626" style={styles.actionButtonIcon} />
           <Text style={styles.reassignButtonText}>Reassign</Text>
-        </TouchableOpacity>
+        </Pressable>
 
-        <TouchableOpacity style={styles.breakButton} activeOpacity={0.8}>
+        <Pressable style={styles.breakButton} activeOpacity={0.8}>
           <Coffee size={14} color="#FFF" style={styles.actionButtonIcon} />
           <Text style={styles.breakButtonText}>Mark Break</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
-    </SafeAreaView>
+    </SafeAreaView >
   );
 }
 
@@ -224,7 +226,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 16,
-     paddingVertical:12
+    paddingVertical: 12
   },
   headerLeft: {
     flexDirection: 'row',
@@ -315,7 +317,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 20,
-    marginTop:20
+    marginTop: 20
   },
   orderBadgeText: {
     color: '#fff',

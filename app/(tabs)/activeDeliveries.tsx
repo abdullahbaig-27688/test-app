@@ -3,15 +3,16 @@ import { useState } from 'react';
 import {
   Dimensions,
   Image,
+  Pressable,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 const { width } = Dimensions.get('window');
+const { router } = require('expo-router');
 
 type FilterType = 'Pickup' | 'On Way' | 'Delivered' | 'Delayed';
 
@@ -75,9 +76,9 @@ export default function ActiveDeliveries() {
 
       {/* HEADER ROW */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}>
+        <Pressable style={styles.backButton} onPress={() => router.back()}>
           <ArrowLeft size={20} color="#111827" />
-        </TouchableOpacity>
+        </Pressable>
         <View style={styles.headerTitleContainer}>
           <Text style={styles.headerTitle}>Active Deliveries</Text>
           <Text style={styles.headerSubtitle}>Monitoring 3 ongoing routes</Text>
@@ -96,9 +97,9 @@ export default function ActiveDeliveries() {
             const isDelayedTab = filter === 'Delayed';
 
             return (
-              <TouchableOpacity
+              <Pressable
                 key={filter}
-                activeOpacity={0.8}
+
                 style={[
                   styles.filterPill,
                   isActive && styles.filterPillActive,
@@ -114,7 +115,7 @@ export default function ActiveDeliveries() {
                   {filter}
                   {isDelayedTab && ' 📍'}
                 </Text>
-              </TouchableOpacity>
+              </Pressable>
             );
           })}
         </ScrollView>
@@ -221,12 +222,12 @@ export default function ActiveDeliveries() {
               </View>
 
               {/* CARD ACTION CONTEXT BUTTON */}
-              <TouchableOpacity
+              <Pressable
                 style={[
                   styles.cardActionButton,
                   isDelayed && styles.cardActionButtonDelayed
                 ]}
-                activeOpacity={0.8}
+
               >
                 <Text style={[
                   styles.cardActionText,
@@ -234,7 +235,7 @@ export default function ActiveDeliveries() {
                 ]}>
                   {order.actionLabel}
                 </Text>
-              </TouchableOpacity>
+              </Pressable>
             </View>
           );
         })}
@@ -252,7 +253,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-    paddingVertical:12
+    paddingVertical: 12
   },
   backButton: {
     width: 40,

@@ -1,16 +1,17 @@
 import { AlertTriangle, ArrowLeft, Clock, User } from 'lucide-react-native';
 import {
   Dimensions,
+  Pressable,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width } = Dimensions.get('window');
+const { router } = require('expo-router');
 
 interface IssueItem {
   id: string;
@@ -53,9 +54,9 @@ export default function IssueCenter() {
 
       {/* HEADER ROW */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} activeOpacity={0.7}>
+        <Pressable style={styles.backButton} onPress={() => router.back()}>
           <ArrowLeft size={20} color="#111827" />
-        </TouchableOpacity>
+        </Pressable>
         <View style={styles.headerTitleContainer}>
           <Text style={styles.headerTitle}>Issue Center</Text>
           <Text style={styles.headerSubtitle}>Manage active driver and order issues.</Text>
@@ -71,9 +72,9 @@ export default function IssueCenter() {
             <View key={issue.id} style={styles.issueCard}>
               {/* TOP TAG AND TIME STRIP */}
               <View style={styles.cardHeaderStrip}>
-                <View 
+                <View
                   style={[
-                    styles.tagBadge, 
+                    styles.tagBadge,
                     isHighPriority ? styles.tagHighPriorityBg : styles.tagDelayBg
                   ]}
                 >
@@ -82,9 +83,9 @@ export default function IssueCenter() {
                   ) : (
                     <Clock size={12} color="#6D28D9" style={styles.tagIcon} />
                   )}
-                  <Text 
+                  <Text
                     style={[
-                      styles.tagText, 
+                      styles.tagText,
                       isHighPriority ? styles.tagHighPriorityText : styles.tagDelayText
                     ]}
                   >
@@ -96,7 +97,7 @@ export default function IssueCenter() {
 
               {/* CARD MAIN INFO BLOCK */}
               <Text style={styles.issueTitle}>{issue.title}</Text>
-              
+
               <View style={styles.metaRow}>
                 <User size={14} color="#6B7280" style={styles.metaIcon} />
                 <Text style={styles.metaText}>
@@ -109,29 +110,29 @@ export default function IssueCenter() {
                 /* Three-Button Layout for Vehicle/High Priority Issues */
                 <View style={styles.actionsContainer}>
                   <View style={styles.splitRow}>
-                    <TouchableOpacity style={[styles.actionButton, styles.outlinedButton, styles.splitButtonSize]}>
+                    <Pressable style={[styles.actionButton, styles.outlinedButton, styles.splitButtonSize]}>
                       <Text style={[styles.actionButtonText, styles.outlinedButtonText]}>Contact Driver</Text>
-                    </TouchableOpacity>
-                    
-                    <TouchableOpacity style={[styles.actionButton, styles.purpleButton, styles.splitButtonSize]}>
+                    </Pressable>
+
+                    <Pressable style={[styles.actionButton, styles.purpleButton, styles.splitButtonSize]}>
                       <Text style={[styles.actionButtonText, styles.purpleButtonText]}>Reassign</Text>
-                    </TouchableOpacity>
+                    </Pressable>
                   </View>
 
-                  <TouchableOpacity style={[styles.actionButton, styles.greenButton, styles.fullWidthButtonMargin]}>
+                  <Pressable style={[styles.actionButton, styles.greenButton, styles.fullWidthButtonMargin]}>
                     <Text style={[styles.actionButtonText, styles.greenButtonText]}>Mark Resolved</Text>
-                  </TouchableOpacity>
+                  </Pressable>
                 </View>
               ) : (
                 /* Two-Button Even Layout for Standard/Delay Issues */
                 <View style={[styles.actionsContainer, styles.splitRow]}>
-                  <TouchableOpacity style={[styles.actionButton, styles.outlinedButton, styles.equalButtonSize]}>
+                  <Pressable style={[styles.actionButton, styles.outlinedButton, styles.equalButtonSize]}>
                     <Text style={[styles.actionButtonText, styles.outlinedButtonText]}>Contact Driver</Text>
-                  </TouchableOpacity>
-                  
-                  <TouchableOpacity style={[styles.actionButton, styles.greenButton, styles.equalButtonSize]}>
+                  </Pressable>
+
+                  <Pressable style={[styles.actionButton, styles.greenButton, styles.equalButtonSize]}>
                     <Text style={[styles.actionButtonText, styles.greenButtonText]}>Mark Resolved</Text>
-                  </TouchableOpacity>
+                  </Pressable>
                 </View>
               )}
             </View>
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-    paddingVertical:12
+    paddingVertical: 12
   },
   backButton: {
     width: 40,

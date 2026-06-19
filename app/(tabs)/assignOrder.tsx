@@ -1,18 +1,20 @@
+// import { router } from '@/.expo/types/router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ArrowLeft, CheckCircle2, Clock, MapPin, Utensils } from 'lucide-react-native';
 import React from 'react';
 import {
   Dimensions,
   Image,
+  Pressable,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 const { width } = Dimensions.get('window');
+const { router } = require('expo-router');
 
 interface RecommendedDriver {
   id: string;
@@ -66,9 +68,9 @@ export default function AssignOrderScreen() {
 
       {/* HEADER SECTION */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} activeOpacity={0.7}>
+        <Pressable style={styles.backButton} onPress={() => router.back()}>
           <ArrowLeft size={20} color="#111827" />
-        </TouchableOpacity>
+        </Pressable>
         <View style={styles.headerTitleContainer}>
           <Text style={styles.headerTitle}>Assign Order</Text>
           <Text style={styles.headerSubtitle}>assign order to drivers</Text>
@@ -76,7 +78,7 @@ export default function AssignOrderScreen() {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        
+
         {/* MAIN ORDER BRIEF CARD (AMBER YELLOW) */}
         <View style={styles.orderBriefCard}>
           <View style={styles.orderBriefHeader}>
@@ -103,7 +105,7 @@ export default function AssignOrderScreen() {
               <View style={styles.dashedLine} />
               <View style={styles.dropoffCircle} />
             </View>
-            
+
             <View style={styles.timelineLabelsBlock}>
               <View style={styles.timelineStep}>
                 <Text style={styles.stepLabel}>PICKUP</Text>
@@ -138,8 +140,8 @@ export default function AssignOrderScreen() {
         {/* DRIVERS SELECTION MAP FEED */}
         {DRIVERS_RECOMMENDED.map((driver) => {
           return (
-            <View 
-              key={driver.id} 
+            <View
+              key={driver.id}
               style={[
                 styles.driverCard,
                 driver.isTopMatch ? styles.driverCardTopMatchBorder : styles.driverCardDefaultBorder
@@ -158,7 +160,7 @@ export default function AssignOrderScreen() {
                     )}
                     <View style={styles.statusIndicatorGreenDot} />
                   </View>
-                  
+
                   <View style={styles.driverMetaBlock}>
                     <Text style={styles.driverNameText}>{driver.name}</Text>
                     <View style={styles.distanceBlock}>
@@ -184,12 +186,12 @@ export default function AssignOrderScreen() {
                   {[0, 1, 2].map((barIdx) => {
                     const isActive = driver.activeOrdersCount > barIdx;
                     return (
-                      <View 
-                        key={barIdx} 
+                      <View
+                        key={barIdx}
                         style={[
                           styles.loadSegmentBar,
                           isActive ? styles.loadSegmentBarActive : styles.loadSegmentBarInactive
-                        ]} 
+                        ]}
                       />
                     );
                   })}
@@ -199,7 +201,7 @@ export default function AssignOrderScreen() {
 
               {/* ACTION SUBMIT CONTAINER */}
               {driver.isTopMatch ? (
-                <TouchableOpacity activeOpacity={0.8}>
+                <Pressable>
                   <LinearGradient
                     colors={['#A78BFA', '#7C3AED']}
                     start={{ x: 0, y: 0 }}
@@ -209,11 +211,11 @@ export default function AssignOrderScreen() {
                     <CheckCircle2 size={16} color="#FFF" style={styles.assignButtonIconSpace} />
                     <Text style={styles.primaryGradientButtonText}>Assign</Text>
                   </LinearGradient>
-                </TouchableOpacity>
+                </Pressable>
               ) : (
-                <TouchableOpacity style={styles.secondaryTextActionButton} activeOpacity={0.7}>
+                <Pressable style={styles.secondaryTextActionButton}>
                   <Text style={styles.secondaryTextActionButtonLabel}>Assign</Text>
-                </TouchableOpacity>
+                </Pressable>
               )}
             </View>
           );

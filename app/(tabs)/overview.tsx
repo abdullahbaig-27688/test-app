@@ -3,12 +3,12 @@ import { useState } from 'react';
 import {
   Dimensions,
   Image,
+  Pressable,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -100,16 +100,15 @@ export default function TeamOverviewScreen() {
           {(['All', 'Available', 'Busy', 'Offline'] as StatusFilter[]).map((filter) => {
             const isActive = activeFilter === filter;
             return (
-              <TouchableOpacity
+              <Pressable
                 key={filter}
-                activeOpacity={0.8}
                 style={[styles.filterPill, isActive && styles.filterPillActive]}
                 onPress={() => setActiveFilter(filter)}
               >
                 <Text style={[styles.filterText, isActive && styles.filterTextActive]}>
                   {filter}
                 </Text>
-              </TouchableOpacity>
+              </Pressable>
             );
           })}
         </ScrollView>
@@ -122,17 +121,17 @@ export default function TeamOverviewScreen() {
 
           return (
             <View key={`${driver.id}-${index}`} style={styles.driverCard}>
-              
+
               {/* TOP HEADER SECTION CARD ELEMENT */}
               <View style={styles.cardHeader}>
                 <View style={styles.profileRow}>
                   <View style={styles.avatarWrapper}>
                     <Image source={{ uri: driver.avatar }} style={styles.avatar} />
-                    <View 
+                    <View
                       style={[
-                        styles.statusIndicatorDot, 
+                        styles.statusIndicatorDot,
                         { backgroundColor: isAvailable ? '#10B981' : '#F59E0B' }
-                      ]} 
+                      ]}
                     />
                   </View>
                   <View style={styles.driverMeta}>
@@ -165,35 +164,35 @@ export default function TeamOverviewScreen() {
 
               {/* LOWER HORIZONTAL ACTION BUTTONS */}
               <View style={styles.actionsContainerRow}>
-                <TouchableOpacity 
+                <Pressable
                   style={[
-                    styles.messageButton, 
+                    styles.messageButton,
                     driver.isActiveAction ? styles.messageButtonActive : styles.messageButtonInactive
                   ]}
-                  activeOpacity={0.8}
+
                 >
-                  <MessageSquare 
-                    size={18} 
-                    color={driver.isActiveAction ? '#FFF' : '#7C3AED'} 
-                    style={styles.actionIconSpace} 
+                  <MessageSquare
+                    size={18}
+                    color={driver.isActiveAction ? '#FFF' : '#7C3AED'}
+                    style={styles.actionIconSpace}
                   />
-                  <Text 
+                  <Text
                     style={[
-                      styles.messageButtonText, 
+                      styles.messageButtonText,
                       { color: driver.isActiveAction ? '#FFF' : '#7C3AED' }
                     ]}
                   >
                     Message
                   </Text>
-                </TouchableOpacity>
+                </Pressable>
 
-                <TouchableOpacity style={styles.squareIconButton} activeOpacity={0.7}>
+                <Pressable style={styles.squareIconButton}>
                   <Phone size={18} color="#111827" />
-                </TouchableOpacity>
+                </Pressable>
 
-                <TouchableOpacity style={styles.squareIconButton} activeOpacity={0.7}>
+                <Pressable style={styles.squareIconButton}>
                   <MoreHorizontal size={18} color="#111827" />
-                </TouchableOpacity>
+                </Pressable>
               </View>
 
             </View>

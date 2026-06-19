@@ -25,7 +25,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
-          href:null,
+          href: null,
           title: 'Explore',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
@@ -49,36 +49,48 @@ export default function TabLayout() {
         name="profile"
         options={{
           href: null,
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.fill" color={color} />,
         }}
       />
       <Tabs.Screen
         name="assignOrder"
         options={{
           href: null,
+          title: 'Assign Order',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="plus.circle.fill" color={color} />,
         }}
       />
-       <Tabs.Screen
+      <Tabs.Screen
         name="activeDeliveries"
         options={{
           href: null,
+          title: 'Active Deliveries',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="truck.fill" color={color} />,
         }}
       />
-         <Tabs.Screen
+      <Tabs.Screen
         name="driverShift"
         options={{
           href: null,
+          title: 'Driver Shifts',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="clock.fill" color={color} />,
         }}
       />
-          <Tabs.Screen
+      <Tabs.Screen
         name="reassignOrder"
         options={{
           href: null,
+          title: 'Reassign Order',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="arrow.2.circlepath" color={color} />,
         }}
       />
-         <Tabs.Screen
-        name="issue"
+      <Tabs.Screen
+        name="issueCenter"
         options={{
           href: null,
+          title: 'Issue Center',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="exclamationmark.triangle.fill" color={color} />,
         }}
       />
     </Tabs>

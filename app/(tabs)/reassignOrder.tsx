@@ -1,17 +1,19 @@
+// import { router } from '@/.expo/types/router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AlertTriangle, ChevronDown, Clock } from 'lucide-react-native';
 import { useState } from 'react';
 import {
   Dimensions,
   Image,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 
 const { width } = Dimensions.get('window');
+const { router } = require('expo-router');
 
 interface Driver {
   id: string;
@@ -30,6 +32,7 @@ const AVAILABLE_DRIVERS: Driver[] = [
 export default function reassignOrder({ onClose }: { onClose?: () => void }) {
   const [selectedDriverId, setSelectedDriverId] = useState<string>('1');
 
+
   return (
     <View style={styles.modalOverlay}>
       <View style={styles.bottomSheetContainer}>
@@ -44,9 +47,9 @@ export default function reassignOrder({ onClose }: { onClose?: () => void }) {
           {/* CURRENT DRIVER METADATA */}
           <Text style={styles.sectionLabel}>CURRENT DRIVER</Text>
           <View style={styles.currentDriverCard}>
-            <Image 
-              source={{ uri: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80' }} 
-              style={styles.avatar} 
+            <Image
+              source={{ uri: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80' }}
+              style={styles.avatar}
             />
             <View style={styles.currentDriverInfo}>
               <Text style={styles.driverName}>Alex Chen</Text>
@@ -59,10 +62,10 @@ export default function reassignOrder({ onClose }: { onClose?: () => void }) {
 
           {/* REASON FOR REASSIGNMENT SELECT DROP-DOWN */}
           <Text style={styles.sectionLabel}>REASON FOR REASSIGNMENT</Text>
-          <TouchableOpacity style={styles.dropdownButton} activeOpacity={0.7}>
+          <Pressable style={styles.dropdownButton}>
             <Text style={styles.dropdownText}>Vehicle issue</Text>
             <ChevronDown size={18} color="#4B5563" />
-          </TouchableOpacity>
+          </Pressable>
 
           {/* DRIVER SELECTION AREA */}
           <View style={styles.driversHeaderRow}>
@@ -73,9 +76,9 @@ export default function reassignOrder({ onClose }: { onClose?: () => void }) {
           {AVAILABLE_DRIVERS.map((driver) => {
             const isSelected = selectedDriverId === driver.id;
             return (
-              <TouchableOpacity
+              <Pressable
                 key={driver.id}
-                activeOpacity={0.9}
+
                 style={[styles.selectableDriverCard, isSelected && styles.selectedCardBorder]}
                 onPress={() => setSelectedDriverId(driver.id)}
               >
@@ -100,18 +103,18 @@ export default function reassignOrder({ onClose }: { onClose?: () => void }) {
                 <View style={[styles.radioCircle, isSelected && styles.radioCircleActive]}>
                   {isSelected && <View style={styles.radioInnerDot} />}
                 </View>
-              </TouchableOpacity>
+              </Pressable>
             );
           })}
         </ScrollView>
 
         {/* BOTTOM ACTION BUTTONS */}
         <View style={styles.actionRowContainer}>
-          <TouchableOpacity style={styles.cancelButton} onPress={onClose}>
+          <Pressable style={styles.cancelButton} onPress={() => router.back()}>
             <Text style={styles.cancelButtonText}>Cancel</Text>
-          </TouchableOpacity>
+          </Pressable>
 
-          <TouchableOpacity style={styles.reassignButtonContainer} activeOpacity={0.8}>
+          <Pressable style={styles.reassignButtonContainer}>
             <LinearGradient
               colors={['#A78BFA', '#7C3AED']}
               start={{ x: 0, y: 0 }}
@@ -120,7 +123,7 @@ export default function reassignOrder({ onClose }: { onClose?: () => void }) {
             >
               <Text style={styles.reassignButtonText}>Reassign</Text>
             </LinearGradient>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </View>

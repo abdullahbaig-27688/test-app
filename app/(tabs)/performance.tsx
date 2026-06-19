@@ -4,15 +4,21 @@ import { useState } from 'react';
 import {
     Dimensions,
     Image,
+    Pressable,
     ScrollView,
     StatusBar,
     StyleSheet,
     Text,
-    TouchableOpacity,
     View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
+import notificationImg from '../../assets/images/notification.png';
+import starImg from '../../assets/images/star.png';
+import strokeImg from '../../assets/images/stroke.png';
+import teamImg from '../../assets/images/team.png';
+import truckImg from '../../assets/images/truck.png';
+import vectorImg from '../../assets/images/vector.png';
+import watchImg from '../../assets/images/watch.png';
 const { width } = Dimensions.get('window');
 
 
@@ -37,11 +43,11 @@ export default function performance() {
                     <Text style={styles.headerTitle}>Team Performance</Text>
                     <Text style={styles.headerSubtitle}>monitoring the team performance</Text>
                 </View>
-                <TouchableOpacity style={styles.iconButton}>
+                <Pressable style={styles.iconButton}>
                     <Image
-                        source={require('../../assets/images/Vector.png')}
+                        source={vectorImg}
                     />
-                </TouchableOpacity>
+                </Pressable>
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
@@ -49,7 +55,7 @@ export default function performance() {
                 {/* TABS / SEGMENTED CONTROL */}
                 <View style={styles.tabContainer}>
                     {(['Today', 'Week', 'Month'] as TabType[]).map((tab) => (
-                        <TouchableOpacity
+                        <Pressable
                             key={tab}
                             style={[styles.tabButton, activeTab === tab && styles.activeTabButton]}
                             onPress={() => setActiveTab(tab)}
@@ -57,7 +63,7 @@ export default function performance() {
                             <Text style={[styles.tabText, activeTab === tab && styles.activeTabText]}>
                                 {tab}
                             </Text>
-                        </TouchableOpacity>
+                        </Pressable>
                     ))}
                 </View>
 
@@ -79,14 +85,14 @@ export default function performance() {
                         </View>
                         <View style={styles.mainCardIconContainer}>
                             <Image
-                                source={require('../../assets/images/Icon.png')}
+                                source={truckImg}
                             />
                         </View>
                     </View>
 
                     {/* Progress Bar */}
                     <View style={styles.progressBarBackground}>
-                        <View style={[styles.progressBarFill, {width: '${(48 / 52) * 100}%'}]} />
+                        <View style={[styles.progressBarFill, { width: '${(48 / 52) * 100}%' }]} />
                     </View>
 
                     <View style={styles.mainCardFooter}>
@@ -102,7 +108,7 @@ export default function performance() {
                         <View style={styles.gridCardHeader}>
                             <Text style={styles.gridCardLabel}>Avg time</Text>
                             <Image
-                                source={require('../../assets/images/watch.png')}
+                                source={watchImg}
                             />
                         </View>
                         <Text style={styles.gridCardValue}>22m</Text>
@@ -127,7 +133,7 @@ export default function performance() {
                         <View style={styles.gridCardHeader}>
                             <Text style={styles.gridCardLabel}>Team rating</Text>
                             <Image
-                                source={require('../../assets/images/star.png')}
+                                source={starImg}
                             />
                         </View>
                         <Text style={styles.gridCardValue}>4.8</Text>
@@ -149,7 +155,7 @@ export default function performance() {
                 </View>
 
                 {/* DRIVERS COUNT ROW */}
-                <TouchableOpacity style={styles.driversRowButton}>
+                <Pressable style={styles.driversRowButton}>
                     <Text style={styles.driversRowLabel}>Shift Status</Text>
                     <View style={styles.driversRowRight}>
                         <Text style={styles.driversRowValue}>12 Drivers</Text>
@@ -157,14 +163,14 @@ export default function performance() {
                             <ChevronRight size={16} color="#111" />
                         </View>
                     </View>
-                </TouchableOpacity>
+                </Pressable>
 
                 {/* TOP DRIVERS SECTION */}
                 <View style={styles.sectionHeader}>
                     <Text style={styles.sectionTitle}>Top Drivers</Text>
-                    <TouchableOpacity>
+                    <Pressable>
                         <Text style={styles.viewAllText}>View all</Text>
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
 
                 {/* DRIVER LIST */}
@@ -188,29 +194,30 @@ export default function performance() {
             </ScrollView>
             {/* BOTTOM NAVIGATION BAR */}
             <View style={styles.bottomNav}>
-                <TouchableOpacity style={styles.navItem}>
+                <Pressable style={styles.navItem}>
                     <Image
-                        source={require('../../assets/images/Stroke.png')}
+
+                        source={strokeImg}
                     />
                     <Text style={[styles.navText, styles.inactiveNavText]}>On Map</Text>
-                </TouchableOpacity>
+                </Pressable>
 
-                <TouchableOpacity style={styles.navItem}>
+                <Pressable style={styles.navItem}>
                     <Image
-                        source={require('../../assets/images/Team.png')}
+                        source={teamImg}
                     />
                     <Text style={[styles.navText, styles.activeNavText]}>Team</Text>
-                </TouchableOpacity>
+                </Pressable>
 
-                <TouchableOpacity style={styles.navItem}>
+                <Pressable style={styles.navItem}>
                     <View>
                         <Image
-                            source={require('../../assets/images/notification.png')}
+                            source={notificationImg}
                         />
 
                     </View>
                     <Text style={[styles.navText, styles.inactiveNavText]}>Inbox</Text>
-                </TouchableOpacity>
+                </Pressable>
             </View>
 
         </SafeAreaView>
@@ -232,7 +239,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 16,
-         paddingVertical:12
+        paddingVertical: 12
     },
     headerTitle: {
         fontSize: 22,

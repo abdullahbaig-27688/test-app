@@ -2,15 +2,16 @@ import { ArrowLeft } from 'lucide-react-native';
 import {
   Dimensions,
   Image,
+  Pressable,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 const { width } = Dimensions.get('window');
+const { router } = require("expo-router");
 
 type ShiftStatus = 'checked_in' | 'on_break' | 'late';
 
@@ -57,9 +58,9 @@ export default function DriverShifts() {
 
       {/* HEADER */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} activeOpacity={0.7}>
+        <Pressable style={styles.backButton} onPress={() => router.back()}>
           <ArrowLeft size={20} color="#111827" />
-        </TouchableOpacity>
+        </Pressable>
         <View style={styles.headerTitleContainer}>
           <Text style={styles.headerTitle}>Driver Shifts</Text>
           <Text style={styles.headerSubtitle}>Manage team availability and status.</Text>
@@ -67,7 +68,7 @@ export default function DriverShifts() {
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
-        
+
         {/* TOP METRICS GRID (2x2 Grid) */}
         <View style={styles.metricsGrid}>
           {/* Checked In */}
@@ -104,15 +105,15 @@ export default function DriverShifts() {
           const isLate = item.status === 'late';
 
           // Get dynamic status dot color
-          const statusDotColor = isCheckedIn 
-            ? '#10B981' 
-            : isOnBreak 
-            ? '#7C3AED' 
-            : '#DC2626';
+          const statusDotColor = isCheckedIn
+            ? '#10B981'
+            : isOnBreak
+              ? '#7C3AED'
+              : '#DC2626';
 
           return (
-            <View 
-              key={item.id} 
+            <View
+              key={item.id}
               style={[
                 styles.rosterCard,
                 isLate && styles.rosterCardLateBorder
@@ -137,30 +138,30 @@ export default function DriverShifts() {
 
               {/* DYNAMIC ACTION BUTTONS */}
               {isCheckedIn && (
-                <TouchableOpacity style={[styles.actionButton, styles.fullWidthButton, styles.buttonPurpleLight]}>
+                <Pressable style={[styles.actionButton, styles.fullWidthButton, styles.buttonPurpleLight]}>
                   <Text style={[styles.buttonText, styles.textPurple]}>Send Reminder</Text>
-                </TouchableOpacity>
+                </Pressable>
               )}
 
               {isOnBreak && (
                 <View style={styles.splitButtonRow}>
-                  <TouchableOpacity style={[styles.actionButton, styles.splitButton, styles.buttonPurpleLight]}>
+                  <Pressable style={[styles.actionButton, styles.splitButton, styles.buttonPurpleLight]}>
                     <Text style={[styles.buttonText, styles.textPurple]}>End Break</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={[styles.actionButton, styles.splitButton, styles.buttonPurpleSolid]}>
+                  </Pressable>
+                  <Pressable style={[styles.actionButton, styles.splitButton, styles.buttonPurpleSolid]}>
                     <Text style={[styles.buttonText, styles.textWhite]}>Approve Break</Text>
-                  </TouchableOpacity>
+                  </Pressable>
                 </View>
               )}
 
               {isLate && (
                 <View style={styles.splitButtonRow}>
-                  <TouchableOpacity style={[styles.actionButton, styles.splitButton, styles.buttonPurpleLight]}>
+                  <Pressable style={[styles.actionButton, styles.splitButton, styles.buttonPurpleLight]}>
                     <Text style={[styles.buttonText, styles.textDark]}>Mark Offline</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={[styles.actionButton, styles.splitButton, styles.buttonRedSolid]}>
+                  </Pressable>
+                  <Pressable style={[styles.actionButton, styles.splitButton, styles.buttonRedSolid]}>
                     <Text style={[styles.buttonText, styles.textWhite]}>Send Reminder</Text>
-                  </TouchableOpacity>
+                  </Pressable>
                 </View>
               )}
             </View>
@@ -181,7 +182,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingTop: 26,
-    paddingBottom:10
+    paddingBottom: 10
   },
   backButton: {
     width: 40,
