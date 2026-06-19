@@ -1,7 +1,6 @@
 import { AlertTriangle, ArrowLeft, Clock, User } from 'lucide-react-native';
 import {
   Dimensions,
-  SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -9,6 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width } = Dimensions.get('window');
 
@@ -151,8 +151,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-    paddingTop: 26,
-    paddingBottom:10
+    paddingVertical:12
   },
   backButton: {
     width: 40,

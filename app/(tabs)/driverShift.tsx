@@ -2,7 +2,6 @@ import { ArrowLeft } from 'lucide-react-native';
 import {
   Dimensions,
   Image,
-  SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -10,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-
+import { SafeAreaView } from 'react-native-safe-area-context';
 const { width } = Dimensions.get('window');
 
 type ShiftStatus = 'checked_in' | 'on_break' | 'late';

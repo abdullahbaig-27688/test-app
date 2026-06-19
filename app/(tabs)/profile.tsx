@@ -1,28 +1,28 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import {
-    ArrowLeft,
-    Clock,
-    Coffee,
-    MapPin,
-    MessageSquare,
-    Phone,
-    ShoppingBag,
-    Shuffle,
-    Star,
-    Wallet
+  ArrowLeft,
+  Clock,
+  Coffee,
+  MapPin,
+  MessageSquare,
+  Phone,
+  ShoppingBag,
+  Shuffle,
+  Star,
+  Wallet
 } from 'lucide-react-native';
 import React from 'react';
 import {
-    Dimensions,
-    Image,
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Dimensions,
+  Image,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width } = Dimensions.get('window');
 
@@ -224,8 +224,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 16,
-    paddingTop: 26,
-    paddingBottom:10
+     paddingVertical:12
   },
   headerLeft: {
     flexDirection: 'row',

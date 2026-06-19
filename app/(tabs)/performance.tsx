@@ -4,7 +4,6 @@ import { useState } from 'react';
 import {
     Dimensions,
     Image,
-    SafeAreaView,
     ScrollView,
     StatusBar,
     StyleSheet,
@@ -12,10 +11,11 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width } = Dimensions.get('window');
 
-// Mock Data for the list
+
 const TOP_DRIVERS = [
     { id: '1', name: 'Ali Ravan', deliveries: '16 Orders', rating: '4.9', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80' },
     { id: '2', name: 'Elnaz Z.', deliveries: '14 Orders', rating: '4.8', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80' },
@@ -86,7 +86,7 @@ export default function performance() {
 
                     {/* Progress Bar */}
                     <View style={styles.progressBarBackground}>
-                        <View style={[styles.progressBarFill, { width: '${(48 / 52) * 100}%' }]} />
+                        <View style={[styles.progressBarFill, {width: '${(48 / 52) * 100}%'}]} />
                     </View>
 
                     <View style={styles.mainCardFooter}>
@@ -232,8 +232,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 16,
-        paddingTop: 26,
-        paddingBottom: 10
+         paddingVertical:12
     },
     headerTitle: {
         fontSize: 22,
