@@ -101,7 +101,7 @@ export default function performance() {
                     <View style={styles.gridCard}>
                         <View style={styles.gridCardHeader}>
                             <Text style={styles.gridCardLabel}>Avg time</Text>
-                             <Image
+                            <Image
                                 source={require('../../assets/images/watch.png')}
                             />
                         </View>
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#FAF9FF',
-        
+
     },
     scrollContainer: {
         paddingHorizontal: 16,
@@ -232,7 +232,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 16,
-        paddingVertical: 26,
+        paddingTop: 26,
+        paddingBottom: 10
     },
     headerTitle: {
         fontSize: 22,

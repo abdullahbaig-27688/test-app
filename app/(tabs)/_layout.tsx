@@ -25,6 +25,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
+          href:null,
           title: 'Explore',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
@@ -50,7 +51,36 @@ export default function TabLayout() {
           href: null,
         }}
       />
-   
+      <Tabs.Screen
+        name="assignOrder"
+        options={{
+          href: null,
+        }}
+      />
+       <Tabs.Screen
+        name="activeDeliveries"
+        options={{
+          href: null,
+        }}
+      />
+         <Tabs.Screen
+        name="driverShift"
+        options={{
+          href: null,
+        }}
+      />
+          <Tabs.Screen
+        name="reassignOrder"
+        options={{
+          href: null,
+        }}
+      />
+         <Tabs.Screen
+        name="revenue"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }

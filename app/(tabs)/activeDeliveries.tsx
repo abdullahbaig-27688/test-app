@@ -1,15 +1,15 @@
 import { AlertTriangle, ArrowLeft } from 'lucide-react-native';
 import { useState } from 'react';
 import {
-    Dimensions,
-    Image,
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Dimensions,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 const { width } = Dimensions.get('window');
@@ -87,28 +87,28 @@ export default function ActiveDeliveries() {
 
       {/* HORIZONTAL FILTERS SCROLL VIEW */}
       <View>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false} 
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.filterScrollContainer}
         >
           {(['Pickup', 'On Way', 'Delivered', 'Delayed'] as FilterType[]).map((filter) => {
             const isActive = activeFilter === filter;
             const isDelayedTab = filter === 'Delayed';
-            
+
             return (
               <TouchableOpacity
                 key={filter}
                 activeOpacity={0.8}
                 style={[
-                  styles.filterPill, 
+                  styles.filterPill,
                   isActive && styles.filterPillActive,
                   !isActive && isDelayedTab && styles.filterPillDelayedInactive
                 ]}
                 onPress={() => setActiveFilter(filter)}
               >
                 <Text style={[
-                  styles.filterText, 
+                  styles.filterText,
                   isActive && styles.filterTextActive,
                   isDelayedTab && !isActive && { color: '#DC2626' }
                 ]}>
@@ -127,10 +127,10 @@ export default function ActiveDeliveries() {
           const isDelayed = order.statusType === 'delayed';
 
           return (
-            <View 
-              key={order.id} 
+            <View
+              key={order.id}
               style={[
-                styles.orderCard, 
+                styles.orderCard,
                 isDelayed && styles.orderCardDelayedBorder
               ]}
             >
@@ -148,7 +148,7 @@ export default function ActiveDeliveries() {
                   <Text style={styles.orderNumberLabel}>ORDER {order.orderNumber}</Text>
                   <Text style={styles.restaurantName}>{order.restaurant}</Text>
                 </View>
-                
+
                 {!isDelayed ? (
                   <View style={styles.etaContainer}>
                     <Text style={styles.etaTimeText}>{order.etaTime}</Text>
@@ -185,8 +185,8 @@ export default function ActiveDeliveries() {
                   {order.steps.map((step, idx) => {
                     const isCurrentStep = step === order.currentStepLabel;
                     return (
-                      <Text 
-                        key={idx} 
+                      <Text
+                        key={idx}
                         style={[
                           styles.stepLabelText,
                           isCurrentStep && !isDelayed && styles.stepLabelActive,
@@ -203,26 +203,26 @@ export default function ActiveDeliveries() {
 
                 {/* Progress Bar Track */}
                 <View style={styles.progressBarBackground}>
-                  <View 
+                  <View
                     style={[
-                      styles.progressBarFillNormal, 
+                      styles.progressBarFillNormal,
                       { width: `${order.progressPercent * 100}%` },
                       isDelayed && { backgroundColor: '#7C3AED' }
-                    ]} 
+                    ]}
                   />
                   {isDelayed && order.delayedProgressPercent && (
-                    <View 
+                    <View
                       style={[
-                        styles.progressBarFillWarning, 
+                        styles.progressBarFillWarning,
                         { width: `${order.delayedProgressPercent * 100}%` }
-                      ]} 
+                      ]}
                     />
                   )}
                 </View>
               </View>
 
               {/* CARD ACTION CONTEXT BUTTON */}
-              <TouchableOpacity 
+              <TouchableOpacity
                 style={[
                   styles.cardActionButton,
                   isDelayed && styles.cardActionButtonDelayed
@@ -253,7 +253,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-    paddingVertical: 24,
+    paddingTop: 26,
+    paddingBottom: 10
   },
   backButton: {
     width: 40,
