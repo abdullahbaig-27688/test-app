@@ -27,13 +27,13 @@ export default function HomeScreen() {
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <Button title="Team Performance" onPress={() => router.push('/performance')} variant="primary" />
-        <Button title="Team Overview" onPress={() => router.push('/overview')} variant="secondary" />
+        <Button title="Team Overview" onPress={() => router.push('/(tabs)/overview')} variant="secondary" />
         <Button title="Driver Profile" onPress={() => router.push('/profile')} variant="outline" />
         <Button title="Reassign Order" onPress={() => router.push('/reassignOrder')} variant="danger" />
         <Button title="Assign Order" onPress={() => router.push('/assignOrder')} variant="warning" />
         <Button title="Active Deliveries" onPress={() => router.push('/activeDeliveries')} variant="success" />
-        <Button title="Issue Center" onPress={() => router.push('/issueCenter')} variant="info" />
-        <Button title="Driver Shifts" onPress={() => router.push('/driverShifts')} variant="dark" />
+        <Button title="Issue Center" onPress={() => router.push('/(tabs)/issue')} variant="info" />
+        <Button title="Driver Shifts" onPress={() => router.push('/(tabs)/driverShift')} variant="dark" />
       </ThemedView>
     </ParallaxScrollView>
   );
