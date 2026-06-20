@@ -52,7 +52,7 @@ export default function IssueCenter() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
 
-      {/* HEADER ROW */}
+  
       <View style={styles.header}>
         <Pressable style={styles.backButton} onPress={() => router.back()}>
           <ArrowLeft size={20} color="#111827" />
@@ -63,14 +63,14 @@ export default function IssueCenter() {
         </View>
       </View>
 
-      {/* ISSUES LIST CARDS CAROUSEL */}
+      
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
         {ISSUES_DATA.map((issue) => {
           const isHighPriority = issue.type === 'high_priority';
 
           return (
             <View key={issue.id} style={styles.issueCard}>
-              {/* TOP TAG AND TIME STRIP */}
+             
               <View style={styles.cardHeaderStrip}>
                 <View
                   style={[
@@ -95,7 +95,7 @@ export default function IssueCenter() {
                 <Text style={styles.timestampText}>{issue.timestamp}</Text>
               </View>
 
-              {/* CARD MAIN INFO BLOCK */}
+
               <Text style={styles.issueTitle}>{issue.title}</Text>
 
               <View style={styles.metaRow}>
@@ -105,9 +105,9 @@ export default function IssueCenter() {
                 </Text>
               </View>
 
-              {/* ACTIONS SECTION */}
+            
               {issue.hasReassignAction ? (
-                /* Three-Button Layout for Vehicle/High Priority Issues */
+
                 <View style={styles.actionsContainer}>
                   <View style={styles.splitRow}>
                     <Pressable style={[styles.actionButton, styles.outlinedButton, styles.splitButtonSize]}>
@@ -270,10 +270,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   splitButtonSize: {
-    width: (width - 76) * 0.48, // Dynamic allocation inside padding boundaries
+    width: (width - 76) * 0.48, 
   },
   equalButtonSize: {
-    width: (width - 84) / 2, // Dynamic distribution scaling for balanced dual components
+    width: (width - 84) / 2, 
   },
   fullWidthButtonMargin: {
     width: '100%',

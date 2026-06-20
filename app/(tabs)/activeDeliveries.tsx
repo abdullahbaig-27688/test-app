@@ -29,8 +29,8 @@ interface OrderItem {
   delayAmount?: string;
   currentStepLabel: string;
   steps: string[];
-  progressPercent: number; // e.g., 0.66 for 2/3 of the bar filled
-  delayedProgressPercent?: number; // extra accent space for split delay states
+  progressPercent: number;
+  delayedProgressPercent?: number;
   actionLabel: string;
 }
 
@@ -74,7 +74,7 @@ export default function ActiveDeliveries() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
 
-      {/* HEADER ROW */}
+
       <View style={styles.header}>
         <Pressable style={styles.backButton} onPress={() => router.back()}>
           <ArrowLeft size={20} color="#111827" />
@@ -85,7 +85,7 @@ export default function ActiveDeliveries() {
         </View>
       </View>
 
-      {/* HORIZONTAL FILTERS SCROLL VIEW */}
+
       <View>
         <ScrollView
           horizontal
@@ -121,7 +121,7 @@ export default function ActiveDeliveries() {
         </ScrollView>
       </View>
 
-      {/* MAIN CARDS FEED LIST */}
+
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.cardsScrollContainer}>
         {ORDERS_DATA.map((order) => {
           const isDelayed = order.statusType === 'delayed';
@@ -134,7 +134,7 @@ export default function ActiveDeliveries() {
                 isDelayed && styles.orderCardDelayedBorder
               ]}
             >
-              {/* Optional absolute top-right delay indicator badge */}
+
               {isDelayed && (
                 <View style={styles.delayedTopBadge}>
                   <AlertTriangle size={12} color="#DC2626" style={{ marginRight: 3 }} />
@@ -162,7 +162,7 @@ export default function ActiveDeliveries() {
                 )}
               </View>
 
-              {/* DRIVER METADATA BLOCK */}
+
               <View style={styles.driverSectionRow}>
                 <View style={styles.driverProfileLeft}>
                   <Image source={{ uri: order.driverAvatar }} style={styles.driverAvatar} />
@@ -179,7 +179,7 @@ export default function ActiveDeliveries() {
                 )}
               </View>
 
-              {/* ROUTE TIMELINE TRACK & LABELS */}
+
               <View style={styles.timelineWrapper}>
                 <View style={styles.timelineLabelsRow}>
                   {order.steps.map((step, idx) => {
@@ -201,7 +201,7 @@ export default function ActiveDeliveries() {
                   })}
                 </View>
 
-                {/* Progress Bar Track */}
+
                 <View style={styles.progressBarBackground}>
                   <View
                     style={[
@@ -221,7 +221,7 @@ export default function ActiveDeliveries() {
                 </View>
               </View>
 
-              {/* CARD ACTION CONTEXT BUTTON */}
+
               <Pressable
                 style={[
                   styles.cardActionButton,
@@ -374,7 +374,7 @@ const styles = StyleSheet.create({
   },
   delayedMetaContainer: {
     alignItems: 'flex-end',
-    marginRight: 80, // Safe padding bound to prevent dynamic overlapping with the absolute warning badge
+    marginRight: 80,
   },
   customerAreaLabel: {
     fontSize: 14,

@@ -36,15 +36,15 @@ export default function reassignOrder({ onClose }: { onClose?: () => void }) {
   return (
     <View style={styles.modalOverlay}>
       <View style={styles.bottomSheetContainer}>
-        {/* Drag Handle Indicator */}
+
         <View style={styles.dragHandle} />
 
-        {/* HEADER SECTION */}
+
         <Text style={styles.title}>Reassign Order</Text>
         <Text style={styles.subtitle}>Choose another available driver for this order.</Text>
 
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
-          {/* CURRENT DRIVER METADATA */}
+
           <Text style={styles.sectionLabel}>CURRENT DRIVER</Text>
           <View style={styles.currentDriverCard}>
             <Image
@@ -60,14 +60,14 @@ export default function reassignOrder({ onClose }: { onClose?: () => void }) {
             </View>
           </View>
 
-          {/* REASON FOR REASSIGNMENT SELECT DROP-DOWN */}
+
           <Text style={styles.sectionLabel}>REASON FOR REASSIGNMENT</Text>
           <Pressable style={styles.dropdownButton}>
             <Text style={styles.dropdownText}>Vehicle issue</Text>
             <ChevronDown size={18} color="#4B5563" />
           </Pressable>
 
-          {/* DRIVER SELECTION AREA */}
+
           <View style={styles.driversHeaderRow}>
             <Text style={styles.sectionLabel}>AVAILABLE DRIVERS</Text>
             <Text style={styles.nearbyCountText}>3 nearby</Text>
@@ -99,7 +99,7 @@ export default function reassignOrder({ onClose }: { onClose?: () => void }) {
                   </View>
                 </View>
 
-                {/* Customized Radio Selection Node */}
+
                 <View style={[styles.radioCircle, isSelected && styles.radioCircleActive]}>
                   {isSelected && <View style={styles.radioInnerDot} />}
                 </View>
@@ -108,7 +108,6 @@ export default function reassignOrder({ onClose }: { onClose?: () => void }) {
           })}
         </ScrollView>
 
-        {/* BOTTOM ACTION BUTTONS */}
         <View style={styles.actionRowContainer}>
           <Pressable style={styles.cancelButton} onPress={() => router.back()}>
             <Text style={styles.cancelButtonText}>Cancel</Text>

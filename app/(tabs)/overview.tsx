@@ -72,13 +72,13 @@ export default function TeamOverviewScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
 
-      {/* HEADER SECTION */}
+
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Team Overview</Text>
         <Text style={styles.headerSubtitle}>Manage and monitor your drivers in real-time.</Text>
       </View>
 
-      {/* SEARCH BAR INPUT CONTAINER */}
+
       <View style={styles.searchContainer}>
         <Search size={18} color="#9CA3AF" style={styles.searchIcon} />
         <TextInput
@@ -90,7 +90,7 @@ export default function TeamOverviewScreen() {
         />
       </View>
 
-      {/* HORIZONTAL FILTERS PILLS LIST */}
+
       <View>
         <ScrollView
           horizontal
@@ -114,7 +114,7 @@ export default function TeamOverviewScreen() {
         </ScrollView>
       </View>
 
-      {/* DRIVERS INTERACTIVE OVERVIEW LIST */}
+
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
         {DRIVERS_DATA.map((driver, index) => {
           const isAvailable = driver.status === 'available';
@@ -122,7 +122,7 @@ export default function TeamOverviewScreen() {
           return (
             <View key={`${driver.id}-${index}`} style={styles.driverCard}>
 
-              {/* TOP HEADER SECTION CARD ELEMENT */}
+
               <View style={styles.cardHeader}>
                 <View style={styles.profileRow}>
                   <View style={styles.avatarWrapper}>
@@ -143,14 +143,14 @@ export default function TeamOverviewScreen() {
                   </View>
                 </View>
 
-                {/* Rating Badge Overlay */}
+
                 <View style={styles.ratingBadge}>
                   <Text style={styles.ratingStar}>★</Text>
                   <Text style={styles.ratingText}>{driver.rating}</Text>
                 </View>
               </View>
 
-              {/* CENTER METRICS LOCATION & EARNINGS BLOCK */}
+
               <View style={styles.metricsContainerRow}>
                 <View style={styles.metricItem}>
                   <MapPin size={16} color="#6B7280" style={styles.metricIcon} />
@@ -162,7 +162,7 @@ export default function TeamOverviewScreen() {
                 </View>
               </View>
 
-              {/* LOWER HORIZONTAL ACTION BUTTONS */}
+
               <View style={styles.actionsContainerRow}>
                 <Pressable
                   style={[
@@ -373,7 +373,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: (width - 64) * 0.64, // Responsive design dynamic assignment configuration
+    width: (width - 64) * 0.64,
     height: 42,
     borderRadius: 21,
   },

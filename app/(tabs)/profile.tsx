@@ -33,7 +33,7 @@ export default function DriverDetailScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
 
-      {/* HEADER SECTION */}
+
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <Pressable style={styles.iconButton} activeOpacity={0.7} onPress={() => { router.back(); }}>
@@ -66,7 +66,7 @@ export default function DriverDetailScreen() {
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
 
-        {/* CURRENT STATUS GRADIENT CARD WITH MATCHING SS GLOW DIRECTION */}
+
         <LinearGradient
           colors={['#121212', '#121212', '#5B00BA33']}
           locations={[0, 0.6, 1]}
@@ -84,7 +84,7 @@ export default function DriverDetailScreen() {
             </View>
           </View>
 
-          {/* Thin horizontal design separator */}
+
           <View style={styles.separatorLine} />
 
           <View style={styles.statusMetricsContainer}>
@@ -106,10 +106,10 @@ export default function DriverDetailScreen() {
           </View>
         </LinearGradient>
 
-        {/* TODAY'S PERFORMANCE SECTION */}
+
         <Text style={styles.sectionLabel}>TODAY'S PERFORMANCE</Text>
 
-        {/* 3-Column Grid */}
+
         <View style={styles.perfGrid}>
           <View style={styles.perfCard}>
             <View style={styles.perfCardHeader}>
@@ -136,7 +136,7 @@ export default function DriverDetailScreen() {
           </View>
         </View>
 
-        {/* Avg Delivery Time Row Component */}
+
         <View style={styles.avgTimeRow}>
           <View style={styles.avgTimeLeft}>
             <Clock size={16} color="#7C3AED" style={styles.avgTimeIcon} />
@@ -145,7 +145,7 @@ export default function DriverDetailScreen() {
           <Text style={styles.avgTimeValue}>22m</Text>
         </View>
 
-        {/* ACTIVE ASSIGNMENT SECTION */}
+
         <Text style={styles.sectionLabel}>ACTIVE ASSIGNMENT</Text>
 
         <View style={styles.assignmentCard}>
@@ -168,7 +168,7 @@ export default function DriverDetailScreen() {
             </View>
           </View>
 
-          {/* Timeline Destination Tracking Block */}
+
           <View style={styles.timelineContainer}>
             <View style={styles.timelineLineContainer}>
               <View style={[styles.timelineDot, { backgroundColor: '#C4B5FD' }]} />
@@ -188,7 +188,7 @@ export default function DriverDetailScreen() {
             </View>
           </View>
 
-          {/* View Map Action Button */}
+
           <Pressable style={styles.viewMapButton} activeOpacity={0.7}>
             <MapPin size={15} color="#111827" style={styles.viewMapIcon} />
             <Text style={styles.viewMapButtonText}>View Map</Text>
@@ -196,7 +196,7 @@ export default function DriverDetailScreen() {
         </View>
       </ScrollView>
 
-      {/* FOOTER ACTIONS ROW */}
+
       <View style={styles.bottomActionBar}>
         <Pressable style={styles.reassignButton} activeOpacity={0.8}>
           <Shuffle size={14} color="#DC2626" style={styles.actionButtonIcon} />

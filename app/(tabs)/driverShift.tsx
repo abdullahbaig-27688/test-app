@@ -69,34 +69,34 @@ export default function DriverShifts() {
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
 
-        {/* TOP METRICS GRID (2x2 Grid) */}
+
         <View style={styles.metricsGrid}>
-          {/* Checked In */}
+
           <View style={[styles.metricCard, styles.bgWhite]}>
             <Text style={styles.metricLabel}>Checked In</Text>
             <Text style={[styles.metricValue, { color: '#10B981' }]}>15</Text>
           </View>
 
-          {/* On Break */}
+
           <View style={[styles.metricCard, styles.bgWhite]}>
             <Text style={styles.metricLabel}>On Break</Text>
             <Text style={[styles.metricValue, { color: '#7C3AED' }]}>2</Text>
           </View>
 
-          {/* Late */}
+
           <View style={[styles.metricCard, styles.bgLightRed]}>
             <Text style={[styles.metricLabel, { color: '#991B1B' }]}>Late</Text>
             <Text style={[styles.metricValue, { color: '#DC2626' }]}>1</Text>
           </View>
 
-          {/* Offline */}
+
           <View style={[styles.metricCard, styles.bgLightGray]}>
             <Text style={styles.metricLabel}>Offline</Text>
             <Text style={[styles.metricValue, { color: '#4B5563' }]}>5</Text>
           </View>
         </View>
 
-        {/* ACTIVE ROSTER SECTION */}
+
         <Text style={styles.sectionTitle}>Active Roster</Text>
 
         {ROSTER_DATA.map((item) => {
@@ -104,7 +104,7 @@ export default function DriverShifts() {
           const isOnBreak = item.status === 'on_break';
           const isLate = item.status === 'late';
 
-          // Get dynamic status dot color
+
           const statusDotColor = isCheckedIn
             ? '#10B981'
             : isOnBreak
@@ -119,7 +119,7 @@ export default function DriverShifts() {
                 isLate && styles.rosterCardLateBorder
               ]}
             >
-              {/* DRIVER INFO ROW */}
+
               <View style={styles.driverRow}>
                 <Image source={{ uri: item.avatar }} style={styles.avatar} />
                 <View style={styles.driverMeta}>
@@ -136,7 +136,7 @@ export default function DriverShifts() {
                 </View>
               </View>
 
-              {/* DYNAMIC ACTION BUTTONS */}
+
               {isCheckedIn && (
                 <Pressable style={[styles.actionButton, styles.fullWidthButton, styles.buttonPurpleLight]}>
                   <Text style={[styles.buttonText, styles.textPurple]}>Send Reminder</Text>
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   metricCard: {
-    width: (width - 44) / 2, // Perfectly balances columns responsive layout across widths
+    width: (width - 44) / 2,
     borderRadius: 20,
     padding: 16,
     marginBottom: 12,
@@ -315,7 +315,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   splitButton: {
-    width: (width - 76) * 0.48, // Responsive multi-button alignment bounds
+    width: (width - 76) * 0.48,
   },
   buttonText: {
     fontSize: 13,

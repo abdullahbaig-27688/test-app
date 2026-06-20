@@ -66,7 +66,7 @@ export default function AssignOrderScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
 
-      {/* HEADER SECTION */}
+
       <View style={styles.header}>
         <Pressable style={styles.backButton} onPress={() => router.back()}>
           <ArrowLeft size={20} color="#111827" />
@@ -79,7 +79,7 @@ export default function AssignOrderScreen() {
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
 
-        {/* MAIN ORDER BRIEF CARD (AMBER YELLOW) */}
+
         <View style={styles.orderBriefCard}>
           <View style={styles.orderBriefHeader}>
             <View style={styles.restaurantInfoBlock}>
@@ -96,7 +96,7 @@ export default function AssignOrderScreen() {
             </View>
           </View>
 
-          {/* Timeline Destination Map Trace */}
+
           <View style={styles.timelineContainer}>
             <View style={styles.timelineVisualBlock}>
               <View style={styles.pickupOuterCircle}>
@@ -118,7 +118,7 @@ export default function AssignOrderScreen() {
             </View>
           </View>
 
-          {/* Footnotes Bottom Horizontal Stats Grid */}
+
           <View style={styles.orderBriefFooter}>
             <View style={styles.footerStatItem}>
               <Clock size={14} color="#111827" style={styles.footerIconSpace} />
@@ -131,13 +131,13 @@ export default function AssignOrderScreen() {
           </View>
         </View>
 
-        {/* SECTION HEADER ROW */}
+
         <View style={styles.sectionHeaderRow}>
           <Text style={styles.sectionTitle}>Recommended Drivers</Text>
           <Text style={styles.sortedLabelText}>Sorted by Match</Text>
         </View>
 
-        {/* DRIVERS SELECTION MAP FEED */}
+
         {DRIVERS_RECOMMENDED.map((driver) => {
           return (
             <View
@@ -147,7 +147,7 @@ export default function AssignOrderScreen() {
                 driver.isTopMatch ? styles.driverCardTopMatchBorder : styles.driverCardDefaultBorder
               ]}
             >
-              {/* DRIVER INFO UPPER ROW */}
+
               <View style={styles.driverCardHeader}>
                 <View style={styles.driverProfileGroup}>
                   <View style={styles.avatarWrapper}>
@@ -180,7 +180,7 @@ export default function AssignOrderScreen() {
                 </View>
               </View>
 
-              {/* THREE-STAGE LOADS PROGRESS TRACK BAR */}
+
               <View style={styles.loadIndicatorRow}>
                 <View style={styles.loadIndicatorBarContainer}>
                   {[0, 1, 2].map((barIdx) => {
@@ -199,7 +199,7 @@ export default function AssignOrderScreen() {
                 <Text style={styles.loadStatusText}>{driver.statusText}</Text>
               </View>
 
-              {/* ACTION SUBMIT CONTAINER */}
+
               {driver.isTopMatch ? (
                 <Pressable>
                   <LinearGradient
@@ -264,7 +264,7 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   orderBriefCard: {
-    backgroundColor: '#FFC700', // Accurate golden amber color profile match
+    backgroundColor: '#FFC700',
     borderRadius: 28,
     padding: 20,
     marginBottom: 24,
@@ -518,7 +518,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
   loadSegmentBarActive: {
-    backgroundColor: '#047857', // Forest green loading active level indicator
+    backgroundColor: '#047857',
   },
   loadSegmentBarInactive: {
     backgroundColor: '#E5E7EB',

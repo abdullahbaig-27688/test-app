@@ -37,7 +37,7 @@ export default function performance() {
         <SafeAreaView style={styles.container}>
             <StatusBar barStyle="dark-content" />
 
-            {/* HEADER */}
+
             <View style={styles.header}>
                 <View>
                     <Text style={styles.headerTitle}>Team Performance</Text>
@@ -52,7 +52,7 @@ export default function performance() {
 
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
 
-                {/* TABS / SEGMENTED CONTROL */}
+
                 <View style={styles.tabContainer}>
                     {(['Today', 'Week', 'Month'] as TabType[]).map((tab) => (
                         <Pressable
@@ -67,9 +67,9 @@ export default function performance() {
                     ))}
                 </View>
 
-                {/* MAIN KPI CARD (Deliveries Completed) */}
+
                 <LinearGradient
-                    // Blends from your deep purple tint, down to a dark translucent layer, ending in near-black
+
                     colors={['#000', '#0000001A', '#5B00BA4D']}
                     style={styles.mainCard}
                     start={{ x: 0, y: 0 }} // Starts top-left
@@ -90,7 +90,7 @@ export default function performance() {
                         </View>
                     </View>
 
-                    {/* Progress Bar */}
+
                     <View style={styles.progressBarBackground}>
                         <View style={[styles.progressBarFill, { width: '${(48 / 52) * 100}%' }]} />
                     </View>
@@ -101,9 +101,9 @@ export default function performance() {
                     </View>
                 </LinearGradient>
 
-                {/* TWO COLUMN GRID */}
+
                 <View style={styles.gridContainer}>
-                    {/* Avg Time Card */}
+
                     <View style={styles.gridCard}>
                         <View style={styles.gridCardHeader}>
                             <Text style={styles.gridCardLabel}>Avg time</Text>
@@ -114,7 +114,7 @@ export default function performance() {
                         <Text style={styles.gridCardValue}>22m</Text>
                         <Text style={styles.gridCardSubGreen}>▲ 3m Target</Text>
 
-                        {/* Mini Bar Chart Asset */}
+
                         <View style={styles.miniChartContainer}>
                             {[35, 50, 40, 30, 20, 45].map((height, i) => (
                                 <View
@@ -128,7 +128,7 @@ export default function performance() {
                         </View>
                     </View>
 
-                    {/* Team Rating Card */}
+
                     <View style={styles.gridCard}>
                         <View style={styles.gridCardHeader}>
                             <Text style={styles.gridCardLabel}>Team rating</Text>
@@ -139,7 +139,7 @@ export default function performance() {
                         <Text style={styles.gridCardValue}>4.8</Text>
                         <Text style={styles.gridCardSubGray}>From 204 reviews</Text>
 
-                        {/* Mini Blocks Rating Asset */}
+
                         <View style={styles.miniChartContainer}>
                             {[0.4, 0.4, 0.4, 0.4, 1].map((opacity, i) => (
                                 <View
@@ -154,7 +154,7 @@ export default function performance() {
                     </View>
                 </View>
 
-                {/* DRIVERS COUNT ROW */}
+
                 <Pressable style={styles.driversRowButton}>
                     <Text style={styles.driversRowLabel}>Shift Status</Text>
                     <View style={styles.driversRowRight}>
@@ -165,7 +165,6 @@ export default function performance() {
                     </View>
                 </Pressable>
 
-                {/* TOP DRIVERS SECTION */}
                 <View style={styles.sectionHeader}>
                     <Text style={styles.sectionTitle}>Top Drivers</Text>
                     <Pressable>
@@ -173,7 +172,7 @@ export default function performance() {
                     </Pressable>
                 </View>
 
-                {/* DRIVER LIST */}
+
                 {TOP_DRIVERS.map((driver, index) => (
                     <View key={driver.id} style={styles.driverCard}>
                         <View style={styles.driverLeftSection}>
@@ -192,7 +191,7 @@ export default function performance() {
                     </View>
                 ))}
             </ScrollView>
-            {/* BOTTOM NAVIGATION BAR */}
+
             <View style={styles.bottomNav}>
                 <Pressable style={styles.navItem}>
                     <Image
@@ -232,7 +231,7 @@ const styles = StyleSheet.create({
     },
     scrollContainer: {
         paddingHorizontal: 16,
-        paddingBottom: 100, // Extra padding to scroll past bottom navigation bar
+        paddingBottom: 100,
     },
     header: {
         flexDirection: 'row',
@@ -358,7 +357,7 @@ const styles = StyleSheet.create({
         marginVertical: 8,
     },
     gridCard: {
-        width: (width - 44) / 2, // Explicit safe width distribution for two columns
+        width: (width - 44) / 2,
         backgroundColor: '#FFF',
         borderRadius: 20,
         padding: 16,
